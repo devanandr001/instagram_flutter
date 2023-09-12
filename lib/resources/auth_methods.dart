@@ -9,7 +9,7 @@ class AuthMethods {
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
   //get user details
-    Future<model.user> getUserDetails() async {
+    Future<model.User> getUserDetails() async {
       User currentUser = _auth.currentUser!;
 
       DocumentSnapshot documentSnapshot =
@@ -86,4 +86,7 @@ class AuthMethods {
       return res;
       }
 
+      Future<void> signOut() async {
+        await _auth.signOut();
+      }
     }
